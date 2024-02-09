@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShowingBasicINformation } from './ShowingBasicInformation';
+import { Subjects } from './Subjects';
 
 function BasicInformation() {
   // Define state variables to hold form data
@@ -78,7 +79,7 @@ function BasicInformation() {
       
       {submitted && <ShowingBasicINformation name={formData.name} university={formData.university} faculty={formData.faculty} degree={formData.degree} />}
 
-      
+        <Subjects />
     </>
     
 
