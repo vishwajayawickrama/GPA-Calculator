@@ -20,26 +20,32 @@ export const Subjects = () => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-red-500 m-4 p-3 flex justify-center"
+      >
         <input
           type="text"
           name="modulecode"
           value={formData.modulecode}
           onChange={handleInputChange}
+          className="m-2"
         ></input>
         <input
           type="text"
           name="modulename"
           value="Module Name"
           onChange={handleInputChange}
+          className="m-2"
         ></input>
         <input
           type="text"
           name="credits"
           value="Credits Offered"
           onChange={handleInputChange}
+          className="m-2"
         ></input>
-        <select id="grade" name="grade" onChange={handleInputChange}>
+        <select id="grade" name="grade" onChange={handleInputChange} className="m-2">
           <option value="" disabled selected>
             Grade
           </option>
