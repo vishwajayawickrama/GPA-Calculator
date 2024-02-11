@@ -3,9 +3,9 @@ export const Subjects = () => {
   const [totalSum, setTotalSum] = useState(0);
   const [formsData, setFormsData] = useState([]); // Array to store all subjects
   const [formData, setFormData] = useState({
-    modulecode: "Module Code",
-    modulename: "Module Name",
-    credits: "Credits Offered",
+    modulecode: "",
+    modulename: "",
+    credits: "",
     grade: "",
   });
 
@@ -53,9 +53,9 @@ export const Subjects = () => {
     setFormsData([...formsData, formData]); //Adding new object to array
     setFormData({
       // Clearing out previous values from form object
-      modulecode: "Module Code",
-      modulename: "Module Name",
-      credits: "Credits Offered",
+      modulecode: "",
+      modulename: "",
+      credits: "",
       grade: formData.grade,
     });
     console.log("toal gpa is: ", totalSum);
@@ -72,48 +72,63 @@ export const Subjects = () => {
         onSubmit={handleSubmit}
         className="bg-green-500 m-4 p-3 flex justify-center"
       >
-        <input
-          type="text"
-          name="modulecode"
-          value={formData.modulecode}
-          onChange={handleInputChange}
-          className="m-2"
-        ></input>
-        <input
-          type="text"
-          name="modulename"
-          value={formData.modulename}
-          onChange={handleInputChange}
-          className="m-2"
-        ></input>
-        <input
-          type="text"
-          name="credits"
-          value={formData.credits}
-          onChange={handleInputChange}
-          className="m-2"
-        ></input>
-        <select
-          id="grade"
-          name="grade"
-          onChange={handleInputChange}
-          className="m-2"
-        >
-          <option value="" disabled selected>
-            Grade
-          </option>
-          <option value="A+">A+</option>
-          <option value="A">A</option>
-          <option value="A-">A-</option>
-          <option value="B+">B+</option>
-          <option value="B">B</option>
-          <option value="B-">B-</option>
-          <option value="C+">C+</option>
-          <option value="C">C</option>
-          <option value="C-">C-</option>
-          <option value="D">D</option>
-          <option value="I">I</option>
-        </select>
+        <div className="flex flex-col items-center">
+          <label for="modulecode" className="">
+            Module Code
+          </label>
+          <input
+            type="text"
+            name="modulecode"
+            value={formData.modulecode}
+            onChange={handleInputChange}
+            className="mt-1 mb-2 mr-3 ml-3"
+          ></input>
+        </div>
+        <div className="flex flex-col items-center">
+          <label for="modulename" className="">
+            Module Name
+          </label>
+          <input
+            type="text"
+            name="modulename"
+            value={formData.modulename}
+            onChange={handleInputChange}
+            className="mt-1 mb-2 mr-3 ml-3"
+          ></input>{" "}
+        </div>
+        <div className="flex flex-col items-center p-5">
+          <input
+            type="text"
+            name="credits"
+            value={formData.credits}
+            placeholder="Credits Offered"
+            onChange={handleInputChange}
+            className="mt-1 mb-2 mr-3 ml-3  border border-black-600 rounded-md pl-2 pt-1 pb-1 focus:border-gray-500 focus:outline-gray-300"
+          ></input>
+        </div>
+        <div className="flex flex-col items-center p-5">
+          <select
+            id="grade"
+            name="grade"
+            onChange={handleInputChange}
+            className="mt-1 mb-2 mr-3 ml-3  border border-black-600 rounded-md pl-2 pt-1 pb-1 focus:border-gray-500 focus:outline-gray-300"
+          >
+            <option value="" disabled selected>
+              Grade
+            </option>
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B">B</option>
+            <option value="B-">B-</option>
+            <option value="C+">C+</option>
+            <option value="C">C</option>
+            <option value="C-">C-</option>
+            <option value="D">D</option>
+            <option value="I">I</option>
+          </select>
+        </div>
         <br />
         <button type="submit" className="bg-yellow-300 p-2">
           + Add New Subject
@@ -151,14 +166,17 @@ export const Subjects = () => {
                   Delete
                 </button>
               </td>
-              
             </tr>
           ))}
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="3" className="text-center">GPA</td>
-            <td className="text-center">{totalSum}</td>
+            <td colspan="3" className="text-right">
+              GPA
+            </td>
+            <td colSpan="2" className="text-center">
+              {totalSum}
+            </td>
           </tr>
         </tfoot>
       </table>
