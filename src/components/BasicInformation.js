@@ -15,13 +15,13 @@ function BasicInformation() {
 
   // Define a function to handle form input changes
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target;//Comment
     setFormData({
       ...formData,
       [name]: value
     });
   };
-
+//rtt
   // Define a function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
